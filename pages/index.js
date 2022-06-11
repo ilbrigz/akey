@@ -51,97 +51,123 @@ export default function Home() {
         <input type="number" onChange={(e) => setItemCount(e.target.value)} />
         <button onClick={onButtonClick}>set Items</button>
       </div>
-      <div>
+      <div style={{ display: 'inline-block' }}>
         {item.map((i, idx) => (
-          <div
-            key={idx}
-            style={{
-              display: 'flex',
-              marginTop: '5px',
-            }}
-          >
-            <span>{idx + 1}.) </span>
-
-            <div style={{ marginRight: '10px', marginLeft: '20px' }}>
-              <input
-                type="radio"
-                id={'html' + idx}
-                name={idx}
-                value="a"
-                onChange={(e) => onSelectOption(e.target.value, idx)}
-              />
-              <label htmlFor={'html' + idx}>a</label>
-              <input
-                type="radio"
-                id={'html' + idx}
-                name={idx}
-                value="b"
-                onChange={(e) => onSelectOption(e.target.value, idx)}
-              />
-              <label htmlFor={'html' + idx}>b</label>
-              <input
-                type="radio"
-                id={'html' + idx}
-                name={idx}
-                value="c"
-                onChange={(e) => onSelectOption(e.target.value, idx)}
-              />
-              <label htmlFor={'html' + idx}>c</label>
-              <input
-                type="radio"
-                id={'html' + idx}
-                name={idx}
-                value="d"
-                onChange={(e) => onSelectOption(e.target.value, idx)}
-              />
-              <label htmlFor={'html' + idx}>d</label>
-            </div>
-            {isChecking && (
-              <div>
-                <button
-                  style={{ backgroundColor: 'orange', borderColor: 'orange' }}
-                  onClick={() => onCheck(false, idx)}
-                >
-                  x
-                </button>
-                <button
+          <div style={{ display: 'fex' }}>
+            <div
+              key={idx}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '10px 0',
+                borderBottom: '1px solid gray',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'end',
+                  marginRight: '10px',
+                  width: '200px',
+                }}
+              >
+                <span
                   style={{
-                    backgroundColor: 'transparent',
-                    borderColor: 'green',
-                    marginLeft: '10px',
+                    marginRight: 'auto',
+                    fontWeight: 700,
                   }}
-                  onClick={() => onCheck(true, idx)}
                 >
-                  /
-                </button>
-                {i.checked ? (
-                  i.correct ? (
-                    <div
-                      style={{
-                        marginLeft: '20px',
-                        backgroundColor: 'green',
-                        borderRadius: '5px',
-                        width: '10px',
-                        height: '10px',
-                        display: 'inline-block',
-                      }}
-                    ></div>
-                  ) : (
-                    <div
-                      style={{
-                        marginLeft: '20px',
-                        backgroundColor: 'red',
-                        borderRadius: '5px',
-                        width: '10px',
-                        height: '10px',
-                        display: 'inline-block',
-                      }}
-                    ></div>
-                  )
-                ) : (
-                  ''
-                )}
+                  {idx + 1}.){' '}
+                </span>
+                <input
+                  type="radio"
+                  id={'html' + idx}
+                  name={idx}
+                  value="a"
+                  onChange={(e) => onSelectOption(e.target.value, idx)}
+                />
+                <label htmlFor={'html' + idx} style={{ marginRight: '10px' }}>
+                  A
+                </label>
+                <input
+                  type="radio"
+                  id={'html' + idx}
+                  name={idx}
+                  value="b"
+                  onChange={(e) => onSelectOption(e.target.value, idx)}
+                />
+                <label htmlFor={'html' + idx} style={{ marginRight: '10px' }}>
+                  B
+                </label>
+                <input
+                  type="radio"
+                  id={'html' + idx}
+                  name={idx}
+                  value="c"
+                  onChange={(e) => onSelectOption(e.target.value, idx)}
+                />
+                <label htmlFor={'html' + idx} style={{ marginRight: '10px' }}>
+                  C
+                </label>
+                <input
+                  type="radio"
+                  id={'html' + idx}
+                  name={idx}
+                  value="d"
+                  onChange={(e) => onSelectOption(e.target.value, idx)}
+                />
+                <label htmlFor={'html' + idx} style={{ marginRight: '10px' }}>
+                  D
+                </label>
               </div>
+              {isChecking && (
+                <div style={{ marginLeft: 'auto' }}>
+                  <button
+                    style={{ backgroundColor: 'orange', borderColor: 'orange' }}
+                    onClick={() => onCheck(false, idx)}
+                  >
+                    x
+                  </button>
+                  <button
+                    style={{
+                      backgroundColor: 'transparent',
+                      borderColor: 'green',
+                      marginLeft: '10px',
+                    }}
+                    onClick={() => onCheck(true, idx)}
+                  >
+                    /
+                  </button>
+                </div>
+              )}
+            </div>
+            {i.checked ? (
+              i.correct ? (
+                <div
+                  style={{
+                    marginLeft: '20px',
+                    backgroundColor: 'green',
+                    borderRadius: '5px',
+                    width: '10px',
+                    height: '10px',
+                    display: 'inline-block',
+                  }}
+                ></div>
+              ) : (
+                <div
+                  style={{
+                    marginLeft: '20px',
+                    backgroundColor: 'red',
+                    borderRadius: '5px',
+                    width: '10px',
+                    height: '10px',
+                    display: 'inline-block',
+                  }}
+                ></div>
+              )
+            ) : (
+              ''
             )}
           </div>
         ))}
